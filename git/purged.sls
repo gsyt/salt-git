@@ -1,9 +1,5 @@
-{%- set os = salt['grains.get']('os') -%}
-{%- set pkgdefault = { 
-  'Ubuntu': 'git', 
-  'CentOS': 'git' } -%}
-{%- set pkgname = salt['pillar.get']('git:pkg:' ~ os, pkgdefault[os]) -%}
+{% from "git/map.jinja" import git with context %}
 
 git.installed:
   pkg.purged:
-    - name: {{ pkgname }}
+    - name: {{ git.package }}

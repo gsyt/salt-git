@@ -1,9 +1,9 @@
-{%- set os = salt['grains.get']('os') -%}
-{%- set pkgdefault = { 
-  'Ubuntu': 'git', 
-  'CentOS': 'git' } -%}
-{%- set pkgname = salt['pillar.get']('git:pkg:' ~ os, pkgdefault[os]) -%}
+{% from "git/map.jinja" import git with context %}
+
+{% set package = {
+  'upgrade': salt['pillar.get']('git:package:upgrade', False),
+} %}
 
 git.installed:
-  pkg.latest:
-    - name: {{ pkgname }}
+  pkg.{{ 'latest' if package.upgrade else 'installed' }}:
+    - name: {{ git.package }}
