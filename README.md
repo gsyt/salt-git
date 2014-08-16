@@ -3,10 +3,9 @@ salt-git
 
 Salt formula to set up and configure [git](http://git-scm.com/)
 
-Requirements
+Parameters
 ------------
-The following pillars are available for configuration:
-  * git:pkg:'salt['pillar.get']('os')
+Please refer to example.pillar for a list of available pillar configuration options
 
 Usage
 -----
