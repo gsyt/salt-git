@@ -11,7 +11,7 @@ Usage
 -----
 - Apply state 'git.install' to install git to target minions
 - Apply state 'git.purge' to remove git from target minions
-State 'git' is provided as an alias for 'git.install'
+- State 'git' is provided as an alias for 'git.install'
 
 Compatibility
 -------------
